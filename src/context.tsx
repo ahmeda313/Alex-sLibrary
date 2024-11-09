@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import {addToLocalStorage,removeFromLocalStorage} from "./utils/localstorage.ts"
 type Book = {
   author: string;
@@ -21,13 +21,22 @@ export const BookMarkContext = createContext<Bookmark>({
   showBookMarkTab: () => {},
   hideBookMarkTab: () => {},
   addToBookMarks: () => {},
-  removeFromBookMarks: () => {},
+  removeFromBookMarks: () => {}
 });
 
 export default function BookMarkContextProvider({ children }:any) {
   const books: Book[] = [];
   const [bookMarks, setBookMarks] = useState(books);
   const [bookMarksTabOpen, setBookMarksTabOpen] = useState(false);
+
+  useEffect(()=>{
+    if(!localStorage.getItem("bookmarks")){
+      localStorage.setItem("bookmarks",JSON.stringify([]))
+    }else{
+      setBookMarks(JSON.parse(localStorage.getItem("bookmarks")|| "[]"))
+    }
+
+  },[])
 
   function addToBookMarks(book:Book) {
     addToLocalStorage(book)
