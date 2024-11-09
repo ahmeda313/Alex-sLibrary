@@ -4,7 +4,7 @@ export default function useSearch() {
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [searchRes, setSearchRes] = useState([]);
+  const [searchRes, setSearchRes] = useState<any[]>([]);
 
   useEffect(() => {
     if (searchTerm.trim() === '') {
@@ -34,10 +34,7 @@ export default function useSearch() {
 
 async function search(term: string, page: number) {
   const res = await fetch(
-    `https://openlibrary.org/search.json?q=${term.replaceAll(
-      ' ',
-      '+'
-    )}&limit=10&offset=${page * 10}`
+    `https://openlibrary.org/search.json?q=${term.split(' ').join("+")}&limit=10&offset=${page * 10}`
   );
   const resData = await res.json();
   return resData;

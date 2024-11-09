@@ -31,7 +31,6 @@ export default function Book({
         <img
           src={`https://covers.openlibrary.org/b/id/${id}-M.jpg`}
           loading="eager"
-          fetchpriority="high"
           className="min-h-[12rem] mx-auto"
           alt="picture"
         />

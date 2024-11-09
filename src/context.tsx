@@ -4,16 +4,16 @@ type Book = {
   title: string;
   id: string;
 };
-// type Bookmark = {
-//   bookMarks: Book[];
-//   bookMarksTabOpen: boolean;
-//   showBookMarkTab: () => void;
-//   hideBookMarkTab: () => void;
-//   addToBookMarks: (book: Book) => void;
-//   removeFromBookMarks: (id: string) => void;
-// };
+type Bookmark = {
+  bookMarks: Book[];
+  bookMarksTabOpen: boolean;
+  showBookMarkTab: () => void;
+  hideBookMarkTab: () => void;
+  addToBookMarks: (book: Book) => void;
+  removeFromBookMarks: (id: string) => void;
+};
 
-export const BookMarkContext = createContext({
+export const BookMarkContext = createContext<Bookmark>({
   bookMarks: [],
   bookMarksTabOpen: false,
   showBookMarkTab: () => {},
@@ -22,7 +22,7 @@ export const BookMarkContext = createContext({
   removeFromBookMarks: () => {},
 });
 
-export default function BookMarkContextProvider({ children }) {
+export default function BookMarkContextProvider({ children }:any) {
   const books: Book[] = [];
   const [bookMarks, setBookMarks] = useState(books);
   const [bookMarksTabOpen, setBookMarksTabOpen] = useState(false);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function useFetch(genre: string) {
-  const [bookArr, setBookArr] = useState([]);
+  const [bookArr, setBookArr] = useState<any[]>([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
