@@ -1,13 +1,12 @@
 import { useRef, useContext } from 'react';
 import Nav from './Nav.tsx';
-import useSearch from '../useSearch.tsx';
+import useSearch from '../Hooks/useSearch.tsx'
 import SearchResults from './SearchResults.tsx';
 import { BookMarkContext } from '../context.tsx';
 
 export default function SearchBar() {
   const inputRef: any = useRef();
-  const { searchTerm, setSearchTerm, loading, searchRes, setPage } =
-    useSearch();
+  const { searchTerm, setSearchTerm, loading, searchRes, setPage } = useSearch();
   const { bookMarksTabOpen } = useContext(BookMarkContext);
 
   function searchFn(e: any) {

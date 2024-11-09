@@ -15,7 +15,7 @@ export default function Body() {
       ) : (
         <>
           <BookContainer title="Mystery" />
-          {/* <BookContainer title="Adventure" /> */}
+          <BookContainer title="Adventure" />
           {/* <BookContainer title="Thriller" /> */}
         </>
       )}
