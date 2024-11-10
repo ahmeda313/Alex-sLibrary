@@ -60,7 +60,7 @@ export default function SearchResults({
             uri={i.uri}
           />
         ))}
-        {loading && <Loading optionalClass="mt-24"/>}
+        {loading && <Loading optionalClass="mt-24 p-10"/>}
       </div>
 
       {searchResArr.length > 4 && (
