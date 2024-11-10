@@ -1,6 +1,6 @@
-export default function Loading() {
+export default function Loading({optionalClass=""}) {
   return (
-    <div role="status" className="mt-5 text-center">
+    <div role="status" className={`mt-5 text-center ${optionalClass}`}>
       <svg
         aria-hidden="true"
         className="inline w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"

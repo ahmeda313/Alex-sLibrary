@@ -10,14 +10,18 @@ export default function BookContainer({ title }: any) {
 
   function scrollEnd() {
     const container = containerRef.current;
-    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+    if (container.scrollLeft + container.clientWidth >= (container.scrollWidth)*(8/10)) {
       setPage((prevPage) => prevPage + 1);
       console.log('Reached the end of horizontal scroll');
     }
   }
   if (bookArr.length===0 && loading) {
     return( 
+    <div className="p-3 max-w-[60em] mx-auto relative rounded-lg group">
+      <h1 className="ps-5 text-2xl font-bold">{title}</h1>
       <Loading/>
+    </div>
+
     )
   }
 
@@ -57,6 +61,7 @@ export default function BookContainer({ title }: any) {
             uri={i.uri}
           />
         ))}
+        {loading && <Loading optionalClass="mt-24"/>}
       </div>
 
       {bookArr.length > 4 && (
