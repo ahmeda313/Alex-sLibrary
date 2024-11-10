@@ -43,14 +43,14 @@ async function search(term: string, page: number) {
 function parseArr(obj: any) {
   const arr = obj.docs;
 
-  return arr.map((i: any) => ({
+  const parsedArr =  arr.map((i: any) => ({
     author: i.author_name[0],
-    cover_edition_key: i.cover_edition_key,
     cover_id: i.cover_i,
     title: i.title,
     uri: i.key,
-    first_publish_year: i.first_publish_year,
   }));
+
+  return parsedArr.filter((i:any)=>i.cover_id!==undefined)
 }
 
 // author_name[0],

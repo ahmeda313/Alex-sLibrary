@@ -36,12 +36,9 @@ async function fetchGenres(genre: string, page: number) {
 function parseArr(arr: []) {
   return arr.map((i: any) => ({
     author: i.authors[0].name,
-    cover_edition_key: i.cover_edition_key,
     cover_id: i.cover_id,
-    ia: i.ia,
     title: i.title,
     uri: i.key,
-    first_publish_year: i.first_publish_year,
   }));
 }
 

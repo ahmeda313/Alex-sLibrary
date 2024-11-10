@@ -26,7 +26,7 @@ export default function SearchBar() {
         </label>
         <div className="relative">
           <input
-            type="search"
+            // type="search"
             id="default-search"
             className="block w-full p-4 text-sm bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 text-white placeholder-white/90"
             placeholder="Harry potter, lord of rings..."

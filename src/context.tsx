@@ -40,6 +40,7 @@ export default function BookMarkContextProvider({ children }:any) {
 
   function addToBookMarks(book:Book) {
     addToLocalStorage(book)
+    console.log(book)
     setBookMarks((prevBooks) => {
       return [...prevBooks, book];
     });

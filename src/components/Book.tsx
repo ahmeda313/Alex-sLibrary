@@ -36,7 +36,7 @@ export default function Book({
         />
         <div>
           <h3 className="pt-1 font-semibold text-md overflow-hidden">
-            {title}
+            {title.length >40 ?title.substring(0,37)+"...":title}
           </h3>
           <p className="text-sm font-thin truncate">{author}</p>
         </div>

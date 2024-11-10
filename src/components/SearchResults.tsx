@@ -13,7 +13,7 @@ export default function SearchResults({
 
   function scrollEnd() {
     const container = containerRef.current;
-    if (container.scrollLeft + container.clientWidth >= (container.scrollWidth)*(8/10)) {
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
       setPage((prevPage:number) => prevPage + 1);
       console.log('Reached the end of horizontal scroll');
     }
