@@ -13,7 +13,7 @@ export default function SearchResults({
 
   function scrollEnd() {
     const container = containerRef.current;
-    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+    if (container.scrollLeft + container.clientWidth >= (container.scrollWidth)*(8/10)) {
       setPage((prevPage:number) => prevPage + 1);
       console.log('Reached the end of horizontal scroll');
     }
@@ -60,6 +60,7 @@ export default function SearchResults({
             uri={i.uri}
           />
         ))}
+        {loading && <Loading optionalClass="mt-24"/>}
       </div>
 
       {searchResArr.length > 4 && (
